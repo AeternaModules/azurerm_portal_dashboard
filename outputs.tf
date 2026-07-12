@@ -1,25 +1,21 @@
-output "portal_dashboards" {
-  description = "All portal_dashboard resources"
-  value       = azurerm_portal_dashboard.portal_dashboards
-}
 output "portal_dashboards_dashboard_properties" {
-  description = "List of dashboard_properties values across all portal_dashboards"
-  value       = [for k, v in azurerm_portal_dashboard.portal_dashboards : v.dashboard_properties]
+  description = "Map of dashboard_properties values across all portal_dashboards, keyed the same as var.portal_dashboards"
+  value       = { for k, v in azurerm_portal_dashboard.portal_dashboards : k => v.dashboard_properties }
 }
 output "portal_dashboards_location" {
-  description = "List of location values across all portal_dashboards"
-  value       = [for k, v in azurerm_portal_dashboard.portal_dashboards : v.location]
+  description = "Map of location values across all portal_dashboards, keyed the same as var.portal_dashboards"
+  value       = { for k, v in azurerm_portal_dashboard.portal_dashboards : k => v.location }
 }
 output "portal_dashboards_name" {
-  description = "List of name values across all portal_dashboards"
-  value       = [for k, v in azurerm_portal_dashboard.portal_dashboards : v.name]
+  description = "Map of name values across all portal_dashboards, keyed the same as var.portal_dashboards"
+  value       = { for k, v in azurerm_portal_dashboard.portal_dashboards : k => v.name }
 }
 output "portal_dashboards_resource_group_name" {
-  description = "List of resource_group_name values across all portal_dashboards"
-  value       = [for k, v in azurerm_portal_dashboard.portal_dashboards : v.resource_group_name]
+  description = "Map of resource_group_name values across all portal_dashboards, keyed the same as var.portal_dashboards"
+  value       = { for k, v in azurerm_portal_dashboard.portal_dashboards : k => v.resource_group_name }
 }
 output "portal_dashboards_tags" {
-  description = "List of tags values across all portal_dashboards"
-  value       = [for k, v in azurerm_portal_dashboard.portal_dashboards : v.tags]
+  description = "Map of tags values across all portal_dashboards, keyed the same as var.portal_dashboards"
+  value       = { for k, v in azurerm_portal_dashboard.portal_dashboards : k => v.tags }
 }
 
